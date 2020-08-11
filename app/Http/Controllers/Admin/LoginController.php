@@ -24,13 +24,13 @@ class LoginController extends Controller
         ]);
 
         $bool = auth()->attempt($post);
-        dd($bool);
         if ($bool) {
             // 登录成功
+	        return redirect(route('admin.index'));
 
         }
 
-        return redirect(route('admin.login'))->withErrors(['登录失败']);
+        return redirect(route('admin.login'))->withErrors(['error'=>'登录失败']);
     }
 
 }
