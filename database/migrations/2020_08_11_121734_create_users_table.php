@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('password', 255)->comment('密码');
             $table->string('email', 50)->nullable()->comment('邮箱');
             $table->string('phone', 20)->default('')->comment('手机号码');
+            $table->unsignedSmallInteger('role')->default(0)->comment('角色')->nullable();
+            $table->unsignedSmallInteger('is_active')->default(0)->comment('是否激活');
             $table->enum('gender', ['先生', '女士'])->default('先生')->comment('性别');
             $table->char('last_ip', 15)->default('')->comment('登录IP');
             $table->timestamps();

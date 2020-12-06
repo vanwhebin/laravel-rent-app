@@ -17,7 +17,7 @@
         {{-- 消息提示 --}}
         @include('admin.common.msg')
 
-        <form class="form form-horizontal" action="{{ route('admin.login') }}" method="post">
+        <form class="form form-horizontal" action="{{ route('admin.user.log-in') }}" method="post">
             @csrf
             <div class="row cl">
                 <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>

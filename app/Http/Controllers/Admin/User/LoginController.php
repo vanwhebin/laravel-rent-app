@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\User;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\AdminLoginRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LoginController extends Controller
+class LoginController extends BaseController
 {
     public function index()
     {
@@ -30,7 +31,13 @@ class LoginController extends Controller
 
         }
 
-        return redirect(route('admin.login'))->withErrors(['error'=>'登录失败']);
+        return redirect(route('admin.user.login'))->withErrors(['error'=>'登录失败']);
+    }
+
+    public function logout(Request $request)
+    {
+    	auth()->logout();
+    	return redirect(route('admin.user.login'))->with('success', '请重新登录');
     }
 
 }
